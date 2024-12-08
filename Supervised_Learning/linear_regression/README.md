@@ -1,60 +1,66 @@
-# Logistic Regression Algorithm
+# Linear Regression Algorithm
 
 ## Introduction
-Logistic regression is a supervised learning algorithm used for binary classification. It predicts the probability of belonging to a particular class using the sigmoid function and optimizes the model using gradient descent. In this project, we implement logistic regression from scratch, visualize the decision boundary, and analyze the training process using a loss curve.
+Linear regression is a supervised learning algorithm used for predicting a continuous target variable. It models the relationship between input features and the target variable by fitting a straight line to the data. In this project, we implemented linear regression from scratch using Python, trained the model using gradient descent, and visualized the regression line and loss curve.
 
 ---
 
 ## Dataset
-The dataset used in this project is synthetically generated using scikit-learn's `make_classification` function. It consists of two features and one binary target variable.
+The dataset was synthetically generated with the following linear relationship:  
+\[ y = 4 + 3x + \text{noise} \]  
+where noise is Gaussian noise added to simulate real-world variability.
 
-- **Number of samples**: 200
-- **Number of features**: 2
-- **Classes**: 0 and 1
-
-### Data Preprocessing
-- **Train-Test Split**: 70% training, 30% testing.
-- **Feature Standardization**: Data is standardized using `StandardScaler` to improve model performance.
+- **Number of samples**: 100  
+- **Features**: 1  
+- **Target Variable**: Continuous  
 
 ---
 
-## Logistic Regression Implementation
-The logistic regression algorithm is implemented from scratch using Python. Key components include:
-1. **Sigmoid Function**:
-   - Converts linear outputs to probabilities between 0 and 1.
-   - \( \sigma(z) = \frac{1}{1 + e^{-z}} \)
+## Linear Regression Implementation
+The linear regression algorithm was implemented from scratch with the following components:
 
-2. **Loss Function**:
-   - Cross-entropy loss is used to measure the difference between predicted probabilities and true labels.
-   - \( \text{Loss} = - \frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right) \)
+### 1. Hypothesis Function
+The hypothesis predicts the target variable as a linear combination of features:  
+\[ h(x) = w \cdot x + b \]  
+where \( w \) is the weight (slope) and \( b \) is the bias (intercept).
 
-3. **Gradient Descent**:
-   - Optimizes weights and bias using gradients of the loss function.
+### 2. Loss Function
+The Mean Squared Error (MSE) was used to measure the error between predicted and actual values:  
+\[ \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - h(x_i))^2 \]
 
-4. **Decision Boundary**:
-   - A visualization of the model's classification ability.
+### 3. Gradient Descent
+The gradients of the loss function with respect to \( w \) and \( b \) were computed to update the model parameters:  
+\[ w = w - \alpha \cdot \frac{\partial \text{MSE}}{\partial w} \]  
+\[ b = b - \alpha \cdot \frac{\partial \text{MSE}}{\partial b} \]  
+where \( \alpha \) is the learning rate.
 
 ---
 
 ## Training Process
-- **Learning Rate**: 0.01
-- **Epochs**: 1000
+- **Learning Rate**: 0.01  
+- **Epochs**: 1000  
 
-During training, the model minimizes the cross-entropy loss, and the loss is visualized in a **loss curve**.
+The model was trained by minimizing the Mean Squared Error (MSE). 
 
 ---
 
 ## Results
 ### 1. Loss Curve
-The loss curve demonstrates how the model converges over the epochs.
+The loss curve demonstrates the convergence of the model during training.
 
-### 2. Decision Boundary
-The decision boundary plot shows the separation between the two classes.
+### 2. Regression Line
+The regression line was visualized against the dataset to demonstrate the model's performance in fitting the data.
 
 ---
 
 ## Files Included
-- `logistic_regression.ipynb`: Contains the full implementation of logistic regression, including data preprocessing, model training, and visualization.
-- `logistic_regression_dataset.csv`: The generated dataset used for training and testing.
-- `README.md`: Documentation of the project.
+- `linear_regression.ipynb`: Contains the full implementation of linear regression, including data generation, training, and visualization.
+- `linear_regression_dataset.csv`: The dataset used for training and testing.
+- `README.md`: Documentation for the project.
 
+---
+
+## How to Run
+1. Navigate to the `Supervised_Learning/linear_regression` directory:
+   ```bash
+   cd Supervised_Learning/linear_regression

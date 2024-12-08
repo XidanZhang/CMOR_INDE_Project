@@ -58,10 +58,3 @@ The decision boundary plot shows the separation between the two classes.
 - `logistic_regression_dataset.csv`: The generated dataset used for training and testing.
 - `README.md`: Documentation of the project.
 
----
-
-## How to Run
-1. Clone this repository and navigate to the `Supervised_Learning/logistic_regression` directory:
-   ```bash
-   cd Supervised_Learning/logistic_regression
-

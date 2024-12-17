@@ -22,9 +22,7 @@ In this implementation, we:
 ## Steps and Implementation
 
 ### 1. Data Visualization
-The dataset is visualized to show its crescent shape:
-
-![Input Data](knn_input_data.png)
+The dataset is visualized to show its crescent shape
 
 ---
 

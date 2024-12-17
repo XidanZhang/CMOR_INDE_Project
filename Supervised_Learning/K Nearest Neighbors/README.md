@@ -1,45 +1,43 @@
-# K-Nearest Neighbors Algorithm
+# K-Means Clustering
 
 ## Introduction
-K-Nearest Neighbors (KNN) is a simple, non-parametric, and lazy learning algorithm used for classification and regression tasks. It classifies a sample based on the majority vote of its nearest neighbors.
+K-Means Clustering is an unsupervised learning algorithm used for grouping data points into a predefined number of clusters. This implementation uses scikit-learn's `KMeans` class to perform clustering on a synthetic dataset.
 
 ---
 
 ## Dataset
-The dataset used for training and testing is synthetically generated using scikit-learn's `make_classification` function. It contains two features and one binary label.
+The dataset is synthetically generated using scikit-learn's `make_blobs` function. It consists of data points grouped into four distinct clusters.
 
-- **Number of samples**: 200  
+- **Number of samples**: 300  
 - **Number of features**: 2  
-- **Classes**: 0 and 1  
+- **Number of clusters**: 4  
 
 ---
 
-## KNN Implementation
-### 1. Algorithm
-For a given sample \( x \), the KNN algorithm performs the following steps:
-1. Calculate the distance between \( x \) and all training samples.
-2. Select the \( k \) nearest neighbors.
-3. Assign \( x \) to the most common class among its \( k \) nearest neighbors.
-
-### 2. Distance Metric
-The Euclidean distance is used to measure the distance between two points:
-\[ d(x_1, x_2) = \sqrt{\sum_{i=1}^n (x_{1i} - x_{2i})^2} \]
+## Algorithm
+### K-Means Clustering
+1. Randomly initializes cluster centroids.
+2. Assigns each data point to the nearest centroid.
+3. Updates centroids by calculating the mean of data points within each cluster.
+4. Repeats steps 2 and 3 until convergence (when centroids no longer change significantly).
 
 ---
 
 ## Training Process
-- **Number of neighbors (k)**: 5  
-- **Train-Test Split**: 80% training, 20% testing  
+1. **WCSS (Within-Cluster Sum of Squares)**:
+   - Measures the variance within clusters.
+   - Used to evaluate the clustering performance.
+2. **Elbow Method**:
+   - Determines the optimal number of clusters by plotting WCSS against the number of clusters.
 
 
 ---
 
 ## Results
-### 1. Decision Boundary
-The decision boundary illustrates how the KNN algorithm classifies samples based on their proximity to neighbors.
+### 1. Clustering Visualization
+- Data points are colored based on their assigned clusters.
+- Centroids are displayed as red `X` markers.
 
-### 2. Accuracy
-The accuracy of the model on the test set is reported in the console.
-
-
+### 2. Elbow Method Visualization
+- Identifies the "elbow point," which indicates the optimal number of clusters.
 
